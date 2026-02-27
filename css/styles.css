@@ -1,4 +1,7 @@
-/* RESET */
+/* =========================================
+   GLOBAL STYLES (Applies everywhere)
+   ========================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,50 +67,158 @@ a {
 
 /* NAVIGATION */
 .nav {
-
   width: 100%;
+}
+
+/* NAVIGATION LINKS */
+.nav-links {
+  list-style: none; /* Removes bullet points */
+  display: flex;    /* Makes list horizontal */
+  gap: 24px;       /* Space between links */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: inline-block; /* Secondary backup to ensure no bullets */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Ugly Dave", cursive;
+  font-size: 16px;
+  
+  /* Opacity Logic */
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+/* Keep active page and hovered links at 100% */
+.nav-links a.active,
+.nav-links a:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    justify-content: center; /* Centers horizontal links on mobile */
+    width: 100%;
+    margin-top: 15px;
+  }
 }
 
 .nav-inner {
   max-width: 1440px;
   margin: 0 auto;
   padding: 32px;
-
+  padding-bottom: 12px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
+  justify-content: space-between; /* Pushes gif left, content right */
+  align-items: flex-start;
 }
 
-.nav-logo img {
+.nav-gif-container {
   display: block;
-  max-width: 200px; /* adjust if needed */
+}
+
+.nav-gif {
+  max-width: 60px;
   height: auto;
 }
 
-.nav-links {
-  list-style: none;
-  text-align: right;
+.nav-gif-shows {
+  max-width: 100px;
+  height: auto;
 }
 
-.nav-links li {
-  margin-top: 4px;
+.nav-gif-releases {
+  max-width: 150px;
+  height: auto;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #000;
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Right-aligns logo and link bar on desktop */
+  gap: 16px;
 }
 
-@media (max-width: 900px) {
+/* LOGO TOGGLE LOGIC */
+.nav-logo img {
+  display: block;
+  max-width: 250px;
+  height: auto;
+}
+
+/* On Desktop: Hide mobile logo, show desktop logo */
+.mobile-logo { display: none !important; }
+.desktop-logo { display: block !important; }
+
+
+/* MOBILE NAVIGATION (900px and below) */
+@media (max-width: 500px) {
   .nav-inner {
-    padding-left: 10px;
-    padding-right: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 15px;
+  }
+
+  .nav-gif-container {
+    display: none; /* Hide gif on mobile */
+  }
+
+  .nav-content {
+    align-items: center; /* Center logo and link bar */
+    width: 100%;
+  }
+
+  /* TOGGLE LOGOS: Hide desktop, show mobile */
+  .desktop-logo { display: none !important; }
+  .mobile-logo { 
+    display: block !important; 
+    max-width: 180px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    justify-content: center; /* Center the links horizontally */
+    width: 100%;
   }
 }
 
 
+/* =========================================
+   RELEASES PAGE
+   ========================================= */
+
+
+ /* Target the main container for this specific page */
+.maintenance-page {
+  display: flex;
+  flex-direction: column;
+  /* Subtract nav/footer height approx, or use 80vh for a safe middle ground */
+  min-height: 80vh; 
+  justify-content: center; /* Centers vertically */
+  align-items: center;     /* Centers horizontally */
+  text-align: center;
+}
+
+.maintenance-message p {
+  font-family: "Ugly Dave", cursive; /* Using your custom font */
+  font-size: 24px;
+  padding: 100px 20px; /* Generous top/bottom padding */
+  opacity: 0.8;
+}  
+
+
+/* =========================================
+   BIO PAGE
+   ========================================= */
+
 /* INTRO */
+
+
 .intro {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -208,68 +319,206 @@ h1 {
   margin-bottom: 12px;
 }
 
-/* FOOTER */
+/* MOBILE STACKING (ONLY for Intro and Press) */
+@media (max-width: 600px) {
+  
+  /* Stacks Bio text and Sidebar */
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Stacks the 3 press quotes vertically */
+  .press-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* Ensures the sidebar image/button doesn't stretch weirdly */
+  .intro-right img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+
+/* =========================================
+   SHOWS PAGE
+   ========================================= */
+
+.shows-section {
+  margin-top: 0px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+.show-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  padding-bottom: 15px;
+  font-family: "Roboto Mono", monospace;
+}
+
+
+.show-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  gap: 2px;
+}
+
+.show-name {
+  font-size: 15px;
+}
+
+.ticket-link {
+  font-family: "Ugly Dave", cursive;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+/* GIF Logic */
+.shows-mobile-gif {
+  display: none; /* Hidden on Desktop/Tablet */
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.shows-mobile-gif img {
+  max-width: 150px;
+}
+
+/* MOBILE SHOWS (600px and below) */
+@media (max-width: 600px) {
+  .show-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .shows-mobile-gif {
+    display: flex; /* Shown only on Mobile */
+  }
+  
+  .ticket-link {
+    align-self: flex-start;
+  }
+}
+
+/* Stack the ticket button underneath the show details */
+.show-item.upcoming {
+  flex-direction: column;   /* Changes from side-by-side to vertical stack */
+  align-items: flex-start;  /* Keeps text and button aligned to the left */
+  gap: 16px;                /* Adds space between the venue and the button */
+}
+
+/* Ensure the SVG button doesn't stretch too wide */
+.ticket-link img {
+  display: block;
+  max-width: 120px;         /* Adjust this number to change the button size */
+  height: auto;
+}
+
+/* Add space above the second section header */
+.shows-section div + h2 {
+    margin-top: 50px;
+}
+
+/* Container needs to be relative so the absolute hover image stays inside it */
+.ticket-button {
+  position: relative;
+  display: inline-block;
+}
+
+.ticket-button img {
+  display: block;
+  max-width: 120px; /* Maintains your preferred size */
+  transition: opacity 0.2s ease;
+}
+
+/* Hide the hover image by default */
+.ticket-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* On hover: Show the hover asset and hide the default asset */
+.ticket-button:hover .ticket-hover {
+  opacity: 1;
+}
+
+.ticket-button:hover .ticket-default {
+  opacity: 0;
+}
+
+
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
 .footer {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  column-gap: 50px;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 60px; /* Space between the text sections */
   margin-top: 80px;
+  width: 100%;
 }
 
 .footer-title {
   font-family: "Ugly Dave", cursive;
   font-size: 18px;
+  text-transform: lowercase; /* Matches your "say hi" style */
 }
 
 .footer-links {
   list-style: none;
+  padding: 0;
 }
 
 .footer-links li {
   margin-bottom: 6px;
 }
 
-.footer-links a {
-  text-decoration: none;
-  color: #000;
+/* RIGHT ALIGN THE GIF ON DESKTOP */
+.footer-gif {
+  margin-left: auto; /* This pushes the GIF to the far right of the flex container */
 }
 
 .footer-gif img {
   max-width: 120px;
   height: auto;
+  display: block;
 }
 
+/* MOBILE FOOTER (Stacks everything centered) */
 @media (max-width: 900px) {
   .footer {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    flex-direction: column;
+    align-items: left; /* Centers all children */
+    text-align: left;  /* Centers text inside children */
+    gap: 40px;           /* Vertical spacing between blocks */
   }
 
   .footer-gif {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 450px) {
-  .footer {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-/* TABLET */
-@media (max-width: 900px) {
-  .intro {
-    grid-template-columns: 1fr;
+    margin-left: 0;      /* Resets the desktop right-alignment */
+    order: 4;            /* Ensures the GIF stays at the very bottom */
   }
 
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .press-grid {
-    grid-template-columns: 1fr;
+  .footer-links {
+    margin: 0;
   }
 }
