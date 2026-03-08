@@ -9,7 +9,7 @@
 }
 
 .page {
-  max-width: 1440px;
+  max-width: 1800px;
   padding: 15px;
   margin: 0 auto;
 }
@@ -109,9 +109,9 @@ a {
 }
 
 .nav-inner {
-  max-width: 1440px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 24px;
   padding-bottom: 12px;
   display: flex;
   justify-content: space-between; /* Pushes gif left, content right */
@@ -189,7 +189,7 @@ a {
 
 
 /* =========================================
-   RELEASES PAGE
+   HOMEPAGE
    ========================================= */
 
 
@@ -213,10 +213,164 @@ a {
 
 
 /* =========================================
+   RELEASES PAGE
+   ========================================= */
+
+/* Right padding so image hits the edge */
+.page {
+  padding-right: 0 !important; 
+  padding-top: 30px;
+}
+
+.releases-page .page {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100%; 
+}
+
+.releases-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.release-item {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #EBEBEB; /* Divider line */
+  margin-bottom: 0; /* No gaps between releases */
+}
+
+/* LEFT CONTENT BLOCK */
+.release-info {
+flex: 0 0 480px;
+    /* Keeping the 15px padding here ensures text alignment stays consistent with the rest of the site */
+    padding: 0px 20px 40px 0px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tracklist ol {
+padding-left: 35px; 
+    margin-bottom: 20px;
+    list-style-position: outside;
+}
+
+.tracklist li {
+    padding-left: 2px; /* Tiny bit of extra space between the number and the song title */
+    margin-bottom: 4px; /* Optional: adds a bit of breathing room between tracks */
+}
+
+/* TOP HEADER ALIGNMENT */
+.info-top-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 40px;
+}
+
+.release-meta {
+  text-align: right;
+}
+
+.release-title {
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+/* BOTTOM CONTENT ALIGNMENT */
+.info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Content fills up from the bottom naturally here */
+}
+
+/* SIDE-BY-SIDE BUTTONS */
+.buy-button {
+  position: relative;
+  display: inline-block;
+  width: 124px; /* Adjust to match your SVG width */
+}
+
+.buy-button img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.2s ease; /* Smooth fade for both images */
+}
+
+.btn-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Hidden by default */
+}
+
+/* Show hover AND hide default */
+.buy-button:hover .btn-hover {
+  opacity: 1;
+}
+
+.buy-button:hover .btn-default {
+  opacity: 0; /* This stops them from showing at the same time */
+}
+
+/* RIGHT VISUAL BLOCK */
+.release-visual {
+  flex-grow: 1; /* Takes up all remaining space */
+  background: #f9f9f9;
+}
+
+.release-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures square image fills the rectangle space */
+  display: block;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 900px) {
+  .page {
+    padding-right: 15px !important; /* Restore padding for mobile */
+  }
+
+  .release-item {
+    flex-direction: column-reverse;
+  }
+
+  .release-info {
+    width: 100%;
+    min-width: 100%;
+    padding: 30px 15px;
+  }
+
+  .release-visual {
+    margin: 0 -15px; /* Pulls image to the very edges of the screen */
+  }
+}
+
+
+
+
+
+
+/* =========================================
    BIO PAGE
    ========================================= */
 
-/* INTRO */
+.page-bio {
+  padding-right: 15px !important; 
+  padding-left: 15px !important; 
+}
+
+   /* INTRO */
 
 
 .intro {
@@ -350,6 +504,11 @@ h1 {
    SHOWS PAGE
    ========================================= */
 
+.page-shows {
+  padding-right: 15px !important; 
+  padding-left: 15px !important; 
+}
+
 .shows-section {
   margin-top: 0px;
 }
@@ -475,22 +634,23 @@ h1 {
   align-items: flex-start;
   gap: 60px; /* Space between the text sections */
   margin-top: 80px;
+  margin-bottom: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
   width: 100%;
 }
 
 .footer-title {
   font-family: "Ugly Dave", cursive;
   font-size: 18px;
-  text-transform: lowercase; /* Matches your "say hi" style */
+  text-transform: lowercase;
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 6px;
+  font-family: "Ugly Dave", cursive;
+  font-size: 16px;
 }
 
 /* RIGHT ALIGN THE GIF ON DESKTOP */
