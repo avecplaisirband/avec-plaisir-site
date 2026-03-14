@@ -188,6 +188,8 @@ a {
 }
 
 
+
+
 /* =========================================
    HOMEPAGE
    ========================================= */
@@ -210,6 +212,8 @@ a {
   padding: 100px 20px; /* Generous top/bottom padding */
   opacity: 0.8;
 }  
+
+
 
 
 /* =========================================
@@ -251,7 +255,7 @@ flex: 0 0 480px;
 }
 
 .tracklist ol {
-padding-left: 35px; 
+padding-left: 28px; 
     margin-bottom: 20px;
     list-style-position: outside;
 }
@@ -636,7 +640,7 @@ h1 {
   margin-top: 80px;
   margin-bottom: 24px;
   padding-right: 24px;
-  padding-left: 24px;
+  padding-left: 0px;
   width: 100%;
 }
 
@@ -649,8 +653,12 @@ h1 {
 .footer-links {
   list-style: none;
   padding: 0;
-  font-family: "Ugly Dave", cursive;
+  font-family: "Ugly Dave";
   font-size: 16px;
+}
+
+.footer-links a {
+  text-decoration: none;
 }
 
 /* RIGHT ALIGN THE GIF ON DESKTOP */
