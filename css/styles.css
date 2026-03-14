@@ -123,17 +123,22 @@ a {
 }
 
 .nav-gif {
-  max-width: 60px;
+  max-width: 50px;
   height: auto;
 }
 
 .nav-gif-shows {
-  max-width: 100px;
+  max-width: 80px;
+  height: auto;
+}
+
+.nav-gif-videos {
+  max-width: 80px;
   height: auto;
 }
 
 .nav-gif-releases {
-  max-width: 150px;
+  max-width: 130px;
   height: auto;
 }
 
@@ -156,7 +161,7 @@ a {
 .desktop-logo { display: block !important; }
 
 
-/* MOBILE NAVIGATION (900px and below) */
+/* MOBILE NAVIGATION (500px and below) */
 @media (max-width: 500px) {
   .nav-inner {
     flex-direction: column;
@@ -169,21 +174,32 @@ a {
   }
 
   .nav-content {
-    align-items: center; /* Center logo and link bar */
+    align-items: center; 
     width: 100%;
   }
 
-  /* TOGGLE LOGOS: Hide desktop, show mobile */
+  /* LOGO: Full Width */
   .desktop-logo { display: none !important; }
   .mobile-logo { 
     display: block !important; 
-    max-width: 180px;
-    margin-bottom: 10px;
+    width: 100%;             /* Makes the image stretch to fill the container */
+    max-width: 100% !important; /* Overrides the previous 180px limit */
+    margin-bottom: 0px;
   }
 
+  /* LINKS: Stacked 3x2 Grid */
   .nav-links {
-    justify-content: center; /* Center the links horizontally */
+    display: grid;                        /* Switched to Grid */
+    grid-template-columns: repeat(3, auto); /* Creates exactly 3 columns */
+    gap: 15px 24px;                      /* 15px between rows, 24px between columns */
+    justify-content: center;             /* Centers the grid on the screen */
     width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Mobile Font Size */
+  .nav-links a {
+    font-size: 21px;
   }
 }
 
@@ -217,7 +233,7 @@ a {
 
 
 /* =========================================
-   RELEASES PAGE
+   MUSIC PAGE
    ========================================= */
 
 /* Right padding so image hits the edge */
@@ -352,7 +368,7 @@ padding-left: 28px;
   .release-info {
     width: 100%;
     min-width: 100%;
-    padding: 30px 15px;
+    padding: 30px 0px;
   }
 
   .release-visual {
@@ -361,6 +377,96 @@ padding-left: 28px;
 }
 
 
+
+
+/* =========================================
+   VIDEOS PAGE
+   ========================================= */
+
+.page-videos {
+    padding-top: 0;
+    padding-right: 15px !important; 
+    padding-left: 15px !important; 
+}
+
+.videos-page .page {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+
+.videos-container {
+    display: flex;
+    width: 100%;
+}
+
+/* LEFT SIDEBAR (Updated to 350px) */
+.videos-sidebar {
+    flex: 0 0 300px;
+    padding: 0px 40px 40px 0px;
+    /* border-right removed */
+}
+
+.videos-sidebar h1 {
+    font-size: 21px;
+    position: sticky;
+    top: 0px;
+    font-family: "Ugly Dave", cursive;
+}
+
+/* RIGHT VIDEO GRID */
+.videos-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
+    gap: 15px;                             /* 24px between and underneath */
+    margin-right: 15px;                    /* 15px right margin */
+    padding-top: 5px;                      /* Aligns top of videos with title text */
+}
+
+/* Video Item - No borders */
+.video-item {
+    background: transparent;
+}
+
+.video-item-bottom {
+    margin-bottom: 50px; 
+}
+
+/* 16:9 Responsive Wrapper */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 900px) {
+    .videos-container {
+        flex-direction: column;
+    }
+
+    .videos-sidebar {
+        flex: none;
+        width: 100%;
+        padding: 20px 0px;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr; /* Stacks 1 per row on mobile */
+        margin-right: 0;
+        padding: 0 0px 40px 0px;
+    }
+}
 
 
 
@@ -486,6 +592,10 @@ h1 {
 
 /* MOBILE STACKING (ONLY for Intro and Press) */
 @media (max-width: 600px) {
+
+  .page-bio {
+  padding-top: 25px;
+}
   
   /* Stacks Bio text and Sidebar */
   .intro {
@@ -496,6 +606,12 @@ h1 {
 
   /* Stacks the 3 press quotes vertically */
   .press-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .press-grid-1 {
     display: flex;
     flex-direction: column;
     gap: 40px;
