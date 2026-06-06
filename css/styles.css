@@ -290,8 +290,8 @@ a {
 
   .bg-micstand {
     position: absolute;
-    /* Shift up so the full micstand art fits without bottom cropping */
-    top: -50px;
+    /* Positioned near the top so the full micstand art fits without significant top cropping */
+    top: -15px;
     left: calc(50% - 50vw);
     width: 42vw;
     max-width: 660px;
@@ -363,33 +363,33 @@ a {
   }
 
   .homepage-tile--bio {
-    top: -10%;
-    left: 9%;
-    width: clamp(360px, 43vw, 720px);
+    top: 0%;
+    left: 18%;
+    width: clamp(219px, 28vw, 437px);
   }
 
   .homepage-tile--video {
-    top: -10%;
-    left: 47%;
-    width: clamp(300px, 42vw, 640px);
+    top: -8%;
+    left: 49%;
+    width: clamp(225px, 31vw, 480px);
   }
 
   .homepage-tile--music {
-    top: 20%;
-    width: clamp(312px, 46.8vw, 690px);
+    top: 24%;
+    width: clamp(234px, 35vw, 520px);
   }
 
   .homepage-tile--shows {
-    top: 32%;
-    left: 33%;
-    width: clamp(281px, 39vw, 600px);
+    top: 34%;
+    left: 36%;
+    width: clamp(200px, 27.5vw, 428px);
   }
 
   .homepage-tile--merch {
-    top: 30%;
-    right: -11.5%;
+    top: 36%;
+    right: 1%;
     left: auto;
-    width: clamp(340px, 46.8vw, 725px);
+    width: clamp(207px, 28.5vw, 439px);
   }
 
   /* Flush to viewport bottom edge */
